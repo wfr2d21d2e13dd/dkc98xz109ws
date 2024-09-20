@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,6 @@
     }
     #countdown, #enter-button {
       font-size: 3rem;
-      display: none;
     }
     #enter-button {
       display: block;
@@ -30,16 +30,25 @@
       font-family: inherit;
       color: #0e0e0e;
     }
+    #countdown, #image {
+      display: none;
+    }
+    #image {
+      margin-top: 20px;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+    }
   </style>
 </head>
 <body>
 
-
   <button id="enter-button">Press to Enter</button>
-
 
   <div id="countdown"></div>
 
+  <img id="image" src="gg.jpg" alt="Image">
 
   <audio id="bg-audio">
     <source src="DONTLIKENIG.mp3" type="audio/mp3">
@@ -49,18 +58,19 @@
   <script>
     function startExperience() {
       document.getElementById('enter-button').style.display = 'none';
-      document.getElementById('countdown').style.display = 'block'; 
+      document.getElementById('countdown').style.display = 'block';
+      document.getElementById('image').style.display = 'block';
 
       const audio = document.getElementById('bg-audio');
-      audio.play(); 
+      audio.play();
 
       function updateCountdown() {
-        const targetDate = new Date('2024-09-21T20:00:00+02:00'); 
+        const targetDate = new Date('2024-09-21T20:00:00+02:00');
         const now = new Date();
         const timeDifference = targetDate - now;
 
         if (timeDifference <= 0) {
-          document.getElementById('countdown').innerHTML = "Time's up! You're cooked!!";
+          document.getElementById('countdown').innerHTML = "Time's up!";
           return;
         }
 
